@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+@import url('sanity.scss');
+
+$dark-grey: #37474F;
+
+body {
+    background-color: #ECEFF1;
+    color: #111c24;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 18px;
+    display: table;
+}
+
+body > main,
+body > aside {
+    display: table-cell;
+}
+
+body > aside {
+    background: #607D8B;
+    border-right: .5em solid $dark-grey;
+    padding: 0.25em;
+    vertical-align: top;
+    width: 1em;
+    font-size: 1.2em;
+}
+
+body > main {
+    padding: 1em;
+}
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+    padding-bottom: 0.25em;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+[data-wc-button] {
+    &:after {
+        content: attr(data-wc-button);
+    }
+    &:before {
+        font-family: FontAwesome;
+    }
+}
+
+aside [data-wc-button] {
+    position: relative;
+    width: 7em;
+    height: 3em;
+    margin-bottom: .25em;
+    font-weight: normal;
+    color: $dark-grey;
+    border: .1em solid;
+    border-bottom: .25em solid;
+    text-align: right;
+
+    &:hover {
+        color: #263238;
+        height: 2.85em;
+        top: .15em;
+        border-bottom: .15em solid;
+        margin-bottom: .4em;
+        cursor: pointer;
+    }
+    &:before {
+        float: left;
+        font-weight: normal;
+    }
+    &:nth-of-type(1):before {
+        content: '\f015';
+    }
+    &:nth-of-type(2):before {
+        content: '\f15c';
+    }
+    &:nth-of-type(3):before {
+        content: '\f1c5';
+    }
+    &:nth-of-type(4):before {
+        content: '\f086';
+    }
+    &:nth-of-type(5):before {
+        content: '\f085';
+    }
+    &:nth-of-type(6):before {
+        content: '\f0ad';
+    }
+    &:nth-of-type(7):before {
+        content: '\f044';
+    }
+    &:nth-of-type(1) {
+        $c: #FFAB00;
+        background: $c;
+
+        &:hover {
+            background: darken($c, 10%);
+        }
+
+        font-weight: bold;
+        font-variant: small-caps;
+    }
+    &:nth-of-type(2) {
+        $c: #00BFA5;
+        background: $c;
+
+        &:hover {
+            background: darken($c, 10%);
+        }
+    }
+    &:nth-of-type(3) {
+        $c: #00C853;
+        background: $c;
+
+        &:hover {
+            background: darken($c, 10%);
+        }
+    }
+    &:nth-of-type(4) {
+        $c: #FF6D00;
+        background: $c;
+
+        &:hover {
+            background: darken($c, 10%);
+        }
+    }
+    &:nth-of-type(5) {
+        $c: #448AFF;
+        background: $c;
+
+        &:hover {
+            background: darken($c, 10%);
+        }
+    }
+    &:nth-of-type(6) {
+        $c: #F44336;
+        background: $c;
+
+        &:hover {
+            background: darken($c, 10%);
+        }
+    }
+    &:nth-of-type(7) {
+        $c: #EC407A;
+        background: $c;
+
+        &:hover {
+            background: darken($c, 10%);
+        }
+    }
+}
+
+main > nav {
+    text-align: center;
+    font-size: 1.5em;
+
+    [data-wc-button] {
+        width: 7em;
+        height: 7em;
+        background: #78909C;
+        color: #eee;
+        border: 2px solid $dark-grey;
+
+        &:before {
+            display: block;
+            position: relative;
+            font-size: 2em;
+            margin-bottom: 0.25em;
+        }
+        &:hover {
+            background: #90A4AE;
+            cursor: pointer;
+        }
+
+        &:nth-of-type(1):before {
+            content: '\f15c';
+        }
+        &:nth-of-type(2):before {
+            content: '\f1c5';
+        }
+        &:nth-of-type(3):before {
+            content: '\f086';
+        }
+        &:nth-of-type(4):before {
+            content: '\f085';
+        }
+        &:nth-of-type(5):before {
+            content: '\f0ad';
+        }
+        &:nth-of-type(6):before {
+            content: '\f044';
+        }
+    }
+}

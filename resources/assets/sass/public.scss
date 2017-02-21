@@ -1,0 +1,610 @@
+@import url('https://fonts.googleapis.com/css?family=Play%7CShare+Tech+Mono');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+@import url('sanity.scss');
+
+$primary: #ffc107;
+$secondary: #009688;
+$tertiary: #03a9f4;
+$quaternary: #ffeb3b;
+$black: #263238;
+$white: #fefefe;
+$shade10: rgba(0, 0, 0, .1);
+$faint: #666;
+$fainter: #aaa;
+$silver: #eee;
+$form-bg: #ddd;
+
+%button {
+  background: $primary;
+  border: 0;
+  box-shadow: -.25em .25em 0 0 $black;
+  color: $black;
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  padding: .5em;
+  transition: all .1s ease-in;
+
+  &:hover {
+    background: $tertiary;
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+%flexiwrap {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+%link {
+  color: $secondary;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.unstyled {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
+
+body {
+  background: url('/img/fans.png');
+  color: $black;
+  font-family: 'Play', 'sans-serif';
+  font-size: 12px;
+}
+
+[type=submit],
+[type=button],
+button {
+  @extend %button;
+}
+
+a {
+  @extend %link;
+}
+
+header {
+  background: $primary;
+  border-bottom: .25em solid $black;
+  box-sizing: content-box;
+  height: 4em;
+  line-height: 1;
+  position: fixed;
+  top: 0;
+  vertical-align: middle;
+  width: 100%;
+  z-index: 100;
+
+  h1 {
+    display: table-cell;
+    height: inherit;
+    margin: 0;
+    vertical-align: middle;
+  }
+
+  nav {
+    background: $secondary;
+    border-bottom: .17em solid $black;
+    border-left: .5em solid $black;
+    color: $white;
+    font-size: 1.5em;
+    height: inherit;
+    line-height: 2.7;
+    padding: 0 3em 0 1em;
+    position: fixed;
+    right: -2em;
+    text-align: right;
+    top: 0;
+    transform: skewX(45deg);
+    width: auto;
+
+    a {
+      color: inherit;
+      display: inline-block;
+      margin: 0 .25em;
+      transform: skewX(-45deg);
+
+      &:hover {
+        color: $quaternary;
+      }
+    }
+  }
+}
+
+[for=menu],
+[id=menu] {
+  display: none;
+}
+
+[id=menu] {
+  left: -9999px;
+  position: absolute;
+  top: -9999px;
+  visibility: hidden;
+}
+
+[for=menu]:hover {
+  color: $quaternary;
+}
+
+.logo {
+  background: $black;
+  color: $primary;
+  display: inline-block;
+  float: left;
+  font-family: 'Share Tech Mono', 'monospace';
+  font-size: 2em;
+  height: 2em;
+  margin-right: .5em;
+  text-align: center;
+  width: 2em;
+
+  span {
+    font-size: .6em;
+  }
+
+  &::before {
+    content: '\f06e';
+    display: block;
+    font-family: 'FontAwesome';
+    margin-bottom: -.5em;
+  }
+
+  &::after {
+    content: '{…}';
+    margin-bottom: -1em;
+    position: relative;
+    top: -.6em;
+  }
+}
+
+.wrapper {
+  margin: .25em auto auto;
+  max-width: 1492px;
+  padding: 6em 2em 2em;
+
+  > * {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  > aside {
+    min-width: 20em;
+    width: 20em;
+
+    nav {
+      font-size: 1.5em;
+      padding-left: 1.5em;
+      text-align: right;
+
+      a {
+        @extend %button;
+        font-size: .9em;
+        margin-bottom: 1em;
+        position: relative;
+
+        &:hover {
+          margin: 0 1em 1em -1em;
+        }
+      }
+    }
+
+    &.tags a {
+      border-bottom: 1px dotted;
+      font-variant: small-caps;
+      margin-right: .25em;
+
+      &:hover {
+        border-bottom: 1px solid;
+        text-decoration: none;
+      }
+
+      &::before {
+        content: '#';
+      }
+    }
+  }
+
+  h1 {
+    border-bottom: 2px solid $shade10;
+  }
+}
+
+.left-wrapper {
+  position: fixed;
+  width: inherit;
+
+  .tags {
+    font-size: 1.5em;
+    margin-top: 1em;
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      &::before {
+        color: $faint;
+        content: '\f02b';
+        font-family: 'FontAwesome';
+        margin-right: .1em;
+      }
+    }
+  }
+}
+
+.about {
+  background: $white;
+  border: .65em solid $tertiary;
+  border-radius: .65em;
+  box-shadow: inset 0 0 0 .325em $black;
+  display: block;
+  padding: 1em;
+  text-align: center;
+  width: inherit;
+
+  img {
+    border: 1px solid;
+    width: 120px;
+  }
+}
+
+main {
+  padding-left: 2em;
+}
+
+article:not(.comment) {
+  background: $white;
+  border: .5em solid $secondary;
+  border-radius: 1em 0;
+  box-shadow: inset 0 0 0 .25em $black;
+  display: block;
+  font-size: 1.3em;
+  margin-bottom: 1em;
+  padding: .75em;
+  text-align: left;
+
+  &.post {
+    border-radius: .65em;
+    padding: .75em 1.5em;
+    text-align: justify;
+
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+    }
+  }
+
+  .tags {
+    margin: -.25em 0 -.5em .75em;
+
+    &::before {
+      color: $faint;
+      content: '\f02c';
+      font-family: 'FontAwesome';
+      margin-right: .25em;
+    }
+  }
+
+  &:not(.post) h1::before {
+    color: $fainter;
+    content: '\00bb\00a0';
+  }
+}
+
+time {
+  color: $faint;
+  font-size: .9em;
+  font-style: italic;
+}
+
+.post-info {
+  color: $faint;
+  display: block;
+  text-align: right;
+}
+
+[rel=author] {
+  color: $tertiary;
+  font-variant: small-caps;
+
+  &::before {
+    content: '\f007 ';
+    font-family: 'FontAwesome';
+  }
+}
+
+.read-more {
+  display: block;
+  float: left;
+  font-size: 1.1em;
+  margin-bottom: -1em;
+  width: 100%;
+
+  &::before {
+    color: $black;
+    content: '\f06e\00a0';
+    display: inline-block;
+    font-family: 'FontAwesome';
+  }
+
+  &::after {
+    content: '…';
+  }
+}
+
+.pagination {
+  font-size: 2em;
+  margin: .5em;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.comments {
+  font-size: 1.2em;
+}
+
+.comment {
+  background: $silver;
+  border: 2px solid $black;
+  font-size: 1rem;
+  margin-top: 1em;
+  padding: 1em;
+
+  &.stripe {
+    background: transparentize($secondary, .88);
+  }
+
+  .comment {
+    border: 0;
+    margin-left: 1em;
+  }
+
+  > h1 {
+    @extend %flexiwrap;
+    border-bottom: 2px solid transparentize($black, .5);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    word-wrap: break-word;
+  }
+
+  > .content {
+    @extend %flexiwrap;
+  }
+
+  aside {
+    font-size: .9em;
+    margin: 1em 0 0;
+    position: relative;
+
+    .info {
+      font-style: italic;
+
+      &::after {
+          content: '';
+          display: inline-block;
+          width: 4em;
+      }
+    }
+
+    > label {
+      @extend %link;
+      display: block;
+      margin-top: -1em;
+      text-align: right;
+
+      &::before {
+        content: '\f112 ';
+        font-family: 'FontAwesome';
+      }
+
+      &::after {
+        content: 'Reply';
+      }
+    }
+
+    &::after {
+      clear: both;
+      content: '';
+      display: block;
+    }
+  }
+
+  [type=checkbox] {
+    margin-top: -12rem;
+    position: absolute;
+    right: 0;
+    visibility: hidden;
+
+    &:checked {
+
+      + label::before {
+        content: '▲ ';
+      }
+
+      + label::after {
+        content: 'Hide';
+      }
+
+      ~ form {
+        display: block;
+      }
+    }
+  }
+
+  form {
+    display: none;
+    margin: 1.5em 1em 1em;
+  }
+
+  &.deep {
+    margin-top: 0;
+
+    &:first-of-type {
+      margin-top: 1em;
+    }
+  }
+}
+
+form {
+
+  label {
+    display: block;
+    font-weight: bold;
+
+    > * {
+      display: block;
+      font-weight: normal;
+    }
+  }
+
+  input[type],
+  textarea {
+    margin: .25em 0 .5em;
+    width: 100%;
+
+    &:not([type=submit]) {
+      border: 2px solid $black;
+    }
+  }
+}
+
+.add-comment {
+  background: $form-bg;
+  border: 2px solid $black;
+  font-size: 1.3em;
+  margin-top: 1em;
+  padding: 1em;
+
+  textarea {
+    height: 6em;
+  }
+}
+
+@media only screen and(max-width: 1280px) {
+  .comment {
+    padding: .5em;
+  }
+
+  .comment .comment {
+    margin-left: 0;
+  }
+}
+
+@media only screen and(max-width: 960px) {
+  main {
+    padding-left: 0;
+  }
+
+  .wrapper > aside:first-child {
+    display: none;
+  }
+}
+
+@media only screen and(max-width: 768px) {
+  .wrapper {
+    padding: 5em 0 1em 1em;
+
+    > aside {
+
+      &:last-child {
+        min-width: 12em;
+        width: 12em;
+      }
+
+      nav {
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+@media only screen and(max-width: 600px) {
+  header nav {
+
+    > div {
+      display: none;
+      transform: skewX(-45deg);
+
+      a {
+        display: block;
+        transform: skewX(0);
+      }
+    }
+
+    [for=menu],
+    [id=menu] {
+      display: inline;
+    }
+
+    [id=menu]:checked ~ div {
+      background: $secondary;
+      border-bottom: .3em solid $black;
+      border-left: .3em solid $black;
+      display: block;
+      margin-left: -6.8em;
+      margin-top: -1px;
+      padding: 0 .5em;
+      position: absolute;
+    }
+
+    [for=menu] {
+      color: inherit;
+      display: inline-block;
+      margin: 0 .25em;
+      transform: skewX(-45deg);
+    }
+
+    [for=menu]::after {
+      content: ' \f0c9';
+      font-family: 'FontAwesome';
+    }
+  }
+}
+
+@media only screen and(max-width: 480px) {
+  .wrapper {
+    padding: 5em 1em 1em;
+
+    > aside {
+      display: none;
+    }
+  }
+}
+
+@media only screen and(min-width: 1520px) {
+  header {
+    background: transparentize($primary, .1);
+    font-size: 1.5em;
+  }
+
+  .wrapper {
+    margin-top: 3.25em;
+  }
+}
