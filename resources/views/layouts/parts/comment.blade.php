@@ -1,7 +1,7 @@
 @foreach ($comments as $comment)
   @if (!isset($comment->reply_to) || (isset($prompt_id) && $comment->reply_to == $prompt_id))
     <article class="comment{{($depth >= config('blog.max_comment_depth')) ? ' deep' : ''}}{{$stripe ? ' stripe' : ''}}">
-      <h1>{{$comment->name}}</h1>
+      <h2>{{$comment->name}}</h2>
       <div class="content">
         @if (!is_null($comment->prompt))
             <a href="#reply-{{$comment->prompt->id}}">{{'@' . $comment->prompt->name}}</a>

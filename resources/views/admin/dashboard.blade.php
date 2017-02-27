@@ -3,26 +3,20 @@
 @section('title', 'Dashboard')
 
 @section('content')
+  <h1>@yield('title')</h1>
+  <nav class="tiles">
+    @include('layouts.parts.admin.nav', [
+      'showCounters' => true
+    ])
+  </nav>
+  <aside class="notifications">
+    @foreach ($notifications as $type => $messages)
+      @foreach ($messages as $message)
+        @include('layouts.parts.admin.notification', [
+          'type' => $type,
+          'message' => $message
+        ])
+      @endforeach
+    @endforeach
   <aside>
-    <nav>
-      <button data-wc-button="Home"></button>
-      <button data-wc-button="Articles"></button>
-      <button data-wc-button="Media"></button>
-      <button data-wc-button="Comments"></button>
-      <button data-wc-button="Config"></button>
-      <button data-wc-button="Tools"></button>
-      <button data-wc-button="Write"></button>
-    </nav>
-  </aside>
-  <main>
-    <h1>Dashboard</h1>
-    <nav>
-      <button data-wc-button="Articles"></button>
-      <button data-wc-button="Media"></button>
-      <button data-wc-button="Comments"></button>
-      <button data-wc-button="Config"></button>
-      <button data-wc-button="Tools"></button>
-      <button data-wc-button="Write"></button>
-    </nav>
-  </main>
 @endsection

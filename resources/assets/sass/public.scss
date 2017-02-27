@@ -140,6 +140,10 @@ header {
   color: $quaternary;
 }
 
+aside h2 {
+  font-size: 2em;
+}
+
 .logo {
   background: $black;
   color: $primary;
@@ -201,25 +205,25 @@ header {
         }
       }
     }
-
-    &.tags a {
-      border-bottom: 1px dotted;
-      font-variant: small-caps;
-      margin-right: .25em;
-
-      &:hover {
-        border-bottom: 1px solid;
-        text-decoration: none;
-      }
-
-      &::before {
-        content: '#';
-      }
-    }
   }
 
-  h1 {
+  h1, h2 {
     border-bottom: 2px solid $shade10;
+  }
+}
+
+.tags a {
+  border-bottom: 1px dotted;
+  font-variant: small-caps;
+  margin-right: .25em;
+
+  &:hover {
+    border-bottom: 1px solid;
+    text-decoration: none;
+  }
+
+  &::before {
+    content: '#';
   }
 }
 
@@ -384,7 +388,7 @@ time {
     margin-left: 1em;
   }
 
-  > h1 {
+  > h2 {
     @extend %flexiwrap;
     border-bottom: 2px solid transparentize($black, .5);
     font-size: 1.2em;

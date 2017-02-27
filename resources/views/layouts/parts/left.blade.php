@@ -1,6 +1,6 @@
 <div class="left-wrapper">
   <div class="about">
-    <h1>Matthew Burrows</h1>
+    <h2>Matthew Burrows</h2>
     <img src="http://placehold.it/120" alt="A picture of Matthew Burrows">
     <p>A pedantic Brit with a penchant for web technology, music, and stupid things.</p>
   </div>

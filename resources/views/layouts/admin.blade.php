@@ -8,6 +8,11 @@
         <link href="{{ mix('/css/dashboard.css') }}" rel="stylesheet" type="text/css">
     </head>
     <body>
-        @yield('content')
+        <aside>
+          @include('layouts.parts.admin.left')
+        </aside>
+        <main>
+          @yield('content')
+        </main>
     </body>
 </html>

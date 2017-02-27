@@ -24,7 +24,7 @@
 
 @section('comments')
     <aside class="comments">
-        <h1>Comments</h1>
+        <h2>Comments</h2>
         @if (count($post->comments))
             @include('layouts.parts.comment', [
               'comments' => $post->comments,

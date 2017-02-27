@@ -19,6 +19,19 @@ Route::get('/tag/{tag}', 'BlogController@showByTag');
 
 Route::post('/postcomment', 'CommentController@create');
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
+Route::get('/dashboard', 'AdminController@index');
+Route::get('/dashboard/comments', 'AdminController@indexComments');
+Route::get('/dashboard/comments/all', function () {
+    $controller = new App\Http\Controllers\AdminController();
+
+    return $controller->indexComments(true);
 });
+Route::get('/dashboard/comments/deleted', function () {
+    $controller = new App\Http\Controllers\AdminController();
+
+    return $controller->indexComments(false, true);
+});
+Route::get('/dashboard/comments/filter', 'AdminController@filterComments');
+
+Route::delete('/dashboard/comments', 'AdminController@deleteComment');
+Route::patch('/dashboard/comments', 'AdminController@ammendComment');

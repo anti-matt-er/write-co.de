@@ -4,7 +4,7 @@
 
 @section('content')
   @if (strtolower($title) != 'home')
-    <h1>{{ $title }}</h1>
+    <h2>{{ $title }}</h2>
   @endif
   @foreach ($posts as $post)
     <article>

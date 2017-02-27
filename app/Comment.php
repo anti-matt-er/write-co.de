@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'name',
         'content',
@@ -25,6 +28,6 @@ class Comment extends Model
 
     public function replies()
     {
-        return $this->hasMany('App\Comment', 'reply_to');
+        return $this->hasMany('App\Comment', 'reply_to')->whereNotNull('published_at');
     }
 }
