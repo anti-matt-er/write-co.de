@@ -13,6 +13,10 @@ $faint: #666;
 $fainter: #aaa;
 $silver: #eee;
 $form-bg: #ddd;
+$success: #00C853;
+$info: #2196F3;
+$warning: #FDD835;
+$danger: #C62828;
 
 %button {
   background: $primary;
@@ -509,6 +513,31 @@ form {
   textarea {
     height: 6em;
   }
+}
+
+.notice {
+  &.success {
+    color: $success;
+    background: transparentize($success, .75);
+  }
+  &.info {
+    color: $info;
+    background: transparentize($info, .75);
+  }
+  &.warning {
+    color: $warning;
+    background: transparentize($warning, .75);
+  }
+  &.danger {
+    color: $danger;
+    background: transparentize($danger, .75);
+  }
+  border-left: 0.5em solid;
+  border-radius: 0.5em;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  padding-left: 1em;
+  font-size: 1.2em;
 }
 
 @media only screen and(max-width: 1280px) {

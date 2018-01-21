@@ -26,6 +26,7 @@
 			@include('layouts.parts.left')
 		</aside>
 		<main>
+			@include('layouts.parts.notices')
       @yield('content')
 			@yield('comments')
 		</main>

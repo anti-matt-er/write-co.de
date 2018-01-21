@@ -11,13 +11,15 @@ class CommentController extends Controller
 {
     public function create(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $validator = $this->validate($request, [
             'name' => 'required|string|max:100|min:3',
             'content' => 'required|string|max:2048|min:5',
         ]);
 
+        $slug = Post::find($request->post_id)->slug;
+
         if ($validator->fails()) {
-            //maybe anchor?
+            return redirect("/post/$slug");
         }
 
         $inputs = [
@@ -32,7 +34,7 @@ class CommentController extends Controller
 
         $comment = Comment::create($inputs);
 
-        $slug = Post::find($request->post_id)->slug;
+        session(["comments.$comment->id" => 'pending']);
 
         return redirect("/post/$slug#reply-$comment->id");
     }
